@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573926861112.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "AD549255",
+    "lastKnownWriteTime" : 1530458018,
+    "last_content_update" : 1530458018,
+    "path" : "~/Dropbox/Praca2/software/HRVapp/inst/pp/server.R",
+    "project_path" : "inst/pp/server.R",
+    "properties" : {
+        "cursorPosition" : "20,8",
+        "scrollLine" : "15"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

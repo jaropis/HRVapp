@@ -1,0 +1,8 @@
+shinyapps
+.Rproj.user
+.Rhistory
+.RData
+.D
+*.Rproj*
+*~
+#*

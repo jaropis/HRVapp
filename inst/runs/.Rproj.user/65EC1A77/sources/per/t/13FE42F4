@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1497385555510.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "956277518",
+    "id" : "13FE42F4",
+    "lastKnownWriteTime" : 1523348033,
+    "last_content_update" : 1523348033644,
+    "path" : "~/Dropbox/Praca/software/opengranary_apps/HRV/runs/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

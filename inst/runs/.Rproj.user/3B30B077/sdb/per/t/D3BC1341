@@ -1,0 +1,19 @@
+{
+    "collab_server" : "",
+    "contents" : "### This file is part of PCSS's Time Series suite.\n\n### Time Series is free software: you can redistribute it and/or modify\n### it under the terms of the GNU General Public License as published by\n### the Free Software Foundation, either version 3 of the License, or\n### (at your option) any later version.\n\n### Time Series is distributed in the hope that it will be useful,\n### but WITHOUT ANY WARRANTY; without even the implied warranty of\n### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n### GNU General Public License for more details.\n\n### You should have received a copy of the GNU General Public License\n### along with Time Series.  If not, see <http://www.gnu.org/licenses/>.\n### Time Series is free software: you can redistribute it and/or modify\n### it under the terms of the GNU General Public License as published by\n### the Free Software Foundation, either version 3 of the License, or\n### (at your option) any later version.\n\n### Time Series is distributed in the hope that it will be useful,\n### but WITHOUT ANY WARRANTY; without even the implied warranty of\n### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n### GNU General Public License for more details.\n\n### You should have received a copy of the GNU General Public License\n### along with Time Series.  If not, see <http://www.gnu.org/licenses/>.\n\nruns_description <- function(){\n  return(\"Program do obliczania długości serii wzrostów (up) i spadków (down) oraz serii, w których nie ma zmian, dla jednego lub więcej przesłanych plików.\n<ul>\n   <li> <strong>format pliku</strong> - plik(i) musi być tekstowy i musi zawierać 2 kolumny - w pierwszej wartości zmiennej, w drugiej flagi - jeżeli nie dysponujemy flagami, to w drugiej kolumnie wprowadzamy same zera\n   <li> <strong>Excel</strong> tabelę resultów można zaznaczyć, np. przytrzymując lewy przycisk myszy, skopiować (Ctrl+c) i wkleić do Excela lub LibreOffice.\n</ul>\")\n}\nlibrary(shiny)\nlibrary(shinynarzedzia)\nshinyUI(\n  fluidPage(\n    titlePanel(\"Mapowanie szeregu czasowego na serie rosnące, malejące i bez zmian\"),\n    fluidRow(\n      column(3,\n             wellPanel(\n               fileInput('files', label=\"załaduj pliki w odpowiednim formacie - patrz prawy pasek\", multiple=TRUE),\n               selectInput(\"separator\", \"wybierz separator\",\n                           list(\"tabulator\", \",\", \";\", \"spacja\"))\n             )\n      ),\n      column(6,tabsetPanel(\n        tabPanel(\"Wyniki numeryczne\", tags$style(type=\"text/css\", \"#filesRunsView { overflow-x: auto; max-width: 100%; }\"),\n                 tableOutput(\"filesRunsView\"))\n      )),\n      \n      column(3, HTML(paste(\"<h4>Wyjaśnienia</h4>\",runs_description()))\n      )\n    )\n  )\n)\n\n",
+    "created" : 1436806843135.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1932796630",
+    "id" : "D3BC1341",
+    "lastKnownWriteTime" : 1441229703,
+    "path" : "D:/Dropbox/Praca/granty/PCSS/ts-applications/runs/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 0,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

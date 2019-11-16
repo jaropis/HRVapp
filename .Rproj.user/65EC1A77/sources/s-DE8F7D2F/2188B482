@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573926880417.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3448652255",
+    "id" : "2188B482",
+    "lastKnownWriteTime" : 1507349822,
+    "last_content_update" : 1507349822,
+    "path" : "~/Dropbox/Praca2/software/HRVapp/inst/pp/ui.R",
+    "project_path" : "inst/pp/ui.R",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

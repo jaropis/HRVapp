@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "##functions for processing the PP\npreparePP <- function(RR, annotations = c()){\n  RRi <- RR[1:(length(RR)-1)]; RRii <- RR[2:length(RR)];\n  annotationsi <- annotations[1:(length(annotations)-1)]; annotationsii <- annotations[2:length(annotations)];\n  removei <- which(annotationsi!=0)\n  removeii <- which(annotationsii!=0)\n  if (length(c(removei, removeii))!=0){\n    RRi <- RRi[-c(removei,removeii)]\n    RRii <- RRii[-c(removei,removeii)]\n  }\n  return(cbind(RRi,RRii))\n}\n\ndrawPP <- function(PP, ...){\n  additional = list(...)\n  xlab = parse(text = paste(additional$variableName, \"[i]\"))\n  ylab = parse(text = paste(additional$variableName, \"[i+1]\"))\n  listOfParameters <- list(PP[,2]~PP[,1], xlab = xlab, ylab = ylab, pch = 21, col = \"black\", bg = additional$color)\n  do.call(what = \"plot\", listOfParameters, quote = TRUE)\n  abline(0,1, lty = 2, lwd = 2)\n}\n\nHRAdescriptors <- function(PP){\n  RRi <- PP[,\"RRi\"]; RRii <- PP[,\"RRii\"]\n  correct <- (length(RRi)-1)/length(RRi)\n  SD1 <- sqrt(var((RRi-RRii)/sqrt(2))*correct)\n\n  correct <- (length(RRi)-1)/length(RRi)\n  SD2 <- sqrt(var((RRi+RRii)/sqrt(2))*correct)\n\n  correct <- (length(RRi)-1)/length(RRi)\n  SDNN <- sqrt(1/2*(SD2^2+SD1^2))\n\n  n <- length(RRi)\n  SD1I <- sqrt((1/n)*sum((RRi-RRii)^2)/2)\n  \n  xy <- (RRii-RRi)/sqrt(2)\n  n <- length(RRi)\n  decelerations <- which(xy>0)\n  accelerations <- which(xy<0)\n  SD1d <- sqrt(sum(xy[decelerations]^2)/n)\n  SD1a <- sqrt(sum(xy[accelerations]^2)/n)\n  C1d <- (SD1d/SD1)^2\n\n  xy <- (RRii-RRi)/sqrt(2)\n  nochange <- which(xy==0);\n  n <- length(RRi)\n  decelerations <- which(xy>0)\n  accelerations <- which(xy<0)\n  XY <- (RRi-mean(RRi)+RRii-mean(RRii))/sqrt(2);\n  SD2a <- sqrt(1/n*(sum(XY[accelerations]^2)+1/2*sum(XY[nochange]^2)))\n  SD2d <- sqrt(1/n*(sum(XY[decelerations]^2)+1/2*sum(XY[nochange]^2)))\n  C2d <- (SD2d/SD2)^2\n\n  SDNNa <- sqrt(1/2*(SD1a^2+SD2a^2))\n  SDNNd <- sqrt(1/2*(SD1d^2+SD2d^2))\n  Cd=(SDNNd/SDNN)^2\n  return(c(SD1, SD2, SDNN, SD1d, SD1a, C1d, SD2d, SD2a, C2d, SDNNd, SDNNa, Cd))\n}\n\n",
+    "created" : 1506241993378.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3614177199",
+    "id" : "9402A5EF",
+    "lastKnownWriteTime" : 1437931711,
+    "last_content_update" : 1437931711,
+    "path" : "~/Dropbox/Praca/software/opengranary_apps/HRV/pp/HRA.R",
+    "project_path" : "HRA.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

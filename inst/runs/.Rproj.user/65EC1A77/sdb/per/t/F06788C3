@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "### tests for runs.R\nlibrary(testthat)\nsource(\"runs.R\")\ncontext(\"The Runs application\")\ntest_that(\"Testing if various runs are counted and interpreted correctly\",{\n  expect_equal(countRuns(c(1,2,2,1)), \n               list(allRuns = list(c(1,2), c(2), c(1)), directions=c(\"dec\", \"noChange\", \"acc\")))\n  expect_equal(countRuns(c(1,2)), list(allRuns = list(c(1,2)), directions = c(\"dec\")))\n  expect_equal(countRuns(c(1,1,1,1,1,1)),list(allRuns = list(c(1,1,1,1,1,1)), directions = c(\"noChange\")))\n  expect_error(countRuns(c(0)), \"the lenght of the time series must be greater than 1\")\n  \n  expect_equal(splitOnAnnot(c(1,1,1), c(0,0,0)), list(c(1,1,1)))\n  expect_equal(splitOnAnnot(c(1,1,1), c(0,1,0)), list(c(1), c(1)))\n  expect_equal(splitOnAnnot(c(1,1,1), c(1,1,1)), list())\n  expect_equal(splitOnAnnot(c(1,1,1,1,1), c(0,0,1,0,0)), list(c(1,1), c(1,1)))\n  \n  expect_equal(splitAllIntoRuns(c(1,1,1,1,1), c(0,0,1,0,0)), \n               list(allRuns = list(c(1,1), c(1,1)), directions = c(\"noChange\", \"noChange\")))\n  expect_equal(splitAllIntoRuns(c(1,2,3,1,2,3), c(0,0,0,0,0,0)), \n               list(allRuns = list(c(1,2,3), c(1),c(2,3)), directions = c(\"dec\", \"acc\", \"dec\")))\n  expect_equal(splitAllIntoRuns(c(1,2,3,3,2,1), c(0,0,0,0,0,0)), \n               list(allRuns = list(c(1,2,3), c(3), c(2,1)), directions = c(\"dec\", \"noChange\", \"acc\")))\n  expect_equal(splitAllIntoRuns(c(1,2,3,8,3,2,1), c(0,0,0,1,0,0,0)), \n               list(allRuns = list(c(1,2,3), c(3,2,1)), directions = c(\"dec\", \"acc\")))\n  expect_equal(countForAll(c(1,2,4,3,2,1,2,3,4,4), c(0,0,0,0,0,0,0,0,0,0)), \n               list(decelerations = c(0,0,2), accelerations = c(0,0,1), noChange = c(1)))\n  expect_equal(countForAll(c(1,2,4,3,2,1,2,3,4,5), c(0,0,0,0,0,0,0,0,0,0)), \n               list(decelerations = c(0,0,1,1), accelerations = c(0,0,1), noChange = c(NULL)))\n  expect_equal(countForAll(c(1,2,4,3,2,1,2,3,4,5), c(0,0,0,1,0,0,0,0,0,0)), \n               list(decelerations = c(0,0,1,1), accelerations = c(0,1), noChange = c(NULL)))\n  expect_equal(countForAll(c(4,3,2,1,2,3,4,5), c(0,0,0,0,0,0,0,0,0,0)), \n               list(decelerations = c(0,0,0,1), accelerations = c(0,0,0,1), noChange = c(NULL)))\n})\n",
+    "created" : 1460884356969.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3167075476",
+    "id" : "F06788C3",
+    "lastKnownWriteTime" : 1437931712,
+    "last_content_update" : 0,
+    "path" : "~/Dropbox/Praca/software/opengranary_apps/HRV/runs/testRuns.R",
+    "project_path" : "testRuns.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
